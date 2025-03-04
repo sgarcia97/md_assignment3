@@ -10,7 +10,7 @@ const MonthPicker = ({setMonth, month}:PickerType) => {
     const [dropdown, setDropdown] = useState(false)
     return(
         <>
-        <TouchableHighlight onPress={()=>setDropdown(!dropdown)}>
+        <TouchableHighlight style={{borderRadius:5}} onPress={()=>setDropdown(!dropdown)}>
             <View style={styles.picker}><Text style={styles.pickertext}>Select month  {dropdown ? `-` : `+`}</Text></View>
         </TouchableHighlight>
         {dropdown && 
@@ -29,11 +29,14 @@ const MonthPicker = ({setMonth, month}:PickerType) => {
 
 const styles = StyleSheet.create({
     dropdown:{
-        backgroundColor:"#eaeaea"
+        backgroundColor:"#eaeaea",
+        borderRadius:5,
+        marginTop:2
     },
     picker:{
         padding:10,
         color:'#000000',
+        borderRadius:5,
         backgroundColor:'#bababa',
       
     },

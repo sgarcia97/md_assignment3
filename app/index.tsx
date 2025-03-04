@@ -81,7 +81,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.title} >Welcome to Date Facts</Text>
-      <Text>Enter the month and day to generate a date fact {month}</Text>
+      <Text style={{textAlign:"center", color:"#999999"}}>Enter the month and day to generate a date fact</Text>
       <View style={styles.inputWrapper}>
         <Text style={styles.label}>Month</Text>
         <TextInput style={styles.input} placeholder="Enter Month" value={month} onChangeText={handleMonthChange} keyboardType="numeric" maxLength={2}/>
@@ -107,8 +107,9 @@ const styles = StyleSheet.create({
     padding:20
   },
   title:{
-    fontWeight:600,
-    fontSize:20
+    fontWeight:800,
+    fontSize:20,
+    textAlign:"center"
   },
   label:{
     color:"#999999"

@@ -57,8 +57,8 @@ const DateFactApi = ({month, day}:DateType) => {
         {error && <Text style={{ color: 'red' }}>Error: {error}</Text>}
         {fact && !loading && !error && (
             <>
-            <Text>Date Fact:</Text>
-            <Text style={styles.fact}>{fact}</Text>
+            <Text style={{textAlign:"center"}}>Date Fact</Text>
+            <Text style={styles.fact}>"{fact}"</Text>
             </>
         )}
         {!fact && !loading && !error && (
@@ -71,7 +71,8 @@ const DateFactApi = ({month, day}:DateType) => {
 const styles = StyleSheet.create({
     fact:{
         fontSize:25,
-        fontWeight:600
+        fontWeight:800,
+        textAlign:"center"
     }
 })
 
