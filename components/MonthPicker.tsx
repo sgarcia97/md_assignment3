@@ -8,6 +8,7 @@ type PickerType = {
 }
 const MonthPicker = ({setMonth, month}:PickerType) => {
     const [dropdown, setDropdown] = useState(false)
+    const [selected, setSelected] = useState(false)
     return(
         <>
         <TouchableHighlight style={{borderRadius:5}} onPress={()=>setDropdown(!dropdown)}>
@@ -16,9 +17,14 @@ const MonthPicker = ({setMonth, month}:PickerType) => {
         {dropdown && 
         <View style={styles.dropdown}>
         {
-            Months.map((month,i)=>{
+            Months.map((m,i)=>{
                 let ii = i+1;
-                return <TouchableOpacity key={i} onPress={()=>{setMonth(ii.toString()); setDropdown(false);}} style={styles.datepicker}><Text style={styles.pickertext}>{month}</Text></TouchableOpacity>
+                let test = ''
+                    if(month === ii.toString()){
+                
+                    }
+                
+                return <TouchableOpacity key={i} onPress={()=>{setMonth(ii.toString()); setDropdown(false);}}><View style={styles.datepicker}><Text style={styles.pickertext}>{(month === ii.toString()) && "\u2713"}  {m}</Text></View></TouchableOpacity>
             })
         }
         </View>
@@ -40,9 +46,13 @@ const styles = StyleSheet.create({
         backgroundColor:'#bababa',
       
     },
+    col:{
+        color:"#0000FF"
+    },
     pickertext:{
         color:'#000000',
-        textAlign:"center"
+        textAlign:"center",
+        fontWeight:700
     },
     datepicker:{
         padding:5,
