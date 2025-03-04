@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react";
-import { Text, View } from "react-native";
+import { Text, View, StyleSheet, ActivityIndicator } from "react-native";
 interface DateType {
     month:string;
     day:string;
@@ -53,12 +53,12 @@ const DateFactApi = ({month, day}:DateType) => {
 
     return(
         <View>
-        {loading && <Text>Loading...</Text>}
+        {loading && <ActivityIndicator/>}
         {error && <Text style={{ color: 'red' }}>Error: {error}</Text>}
         {fact && !loading && !error && (
             <>
             <Text>Date Fact:</Text>
-            <Text>{fact}</Text>
+            <Text style={styles.fact}>{fact}</Text>
             </>
         )}
         {!fact && !loading && !error && (
@@ -67,5 +67,12 @@ const DateFactApi = ({month, day}:DateType) => {
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    fact:{
+        fontSize:25,
+        fontWeight:600
+    }
+})
 
 export default DateFactApi;

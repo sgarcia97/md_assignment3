@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import {useState} from "react"
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 import DateFactApi from "../components/DateFactApi"
+import MonthPicker from '../components/MonthPicker'
 
 export default function App() {
   const [month, setMonth] = useState<string>("");
@@ -80,10 +81,12 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.title} >Welcome to Date Facts</Text>
-      <Text>Enter the month and day to generate a date fact</Text>
+      <Text>Enter the month and day to generate a date fact {month}</Text>
       <View style={styles.inputWrapper}>
         <Text style={styles.label}>Month</Text>
-        <TextInput style={styles.input} placeholder="Enter Month" onChangeText={handleMonthChange} keyboardType="numeric" maxLength={2}/>
+        <TextInput style={styles.input} placeholder="Enter Month" value={month} onChangeText={handleMonthChange} keyboardType="numeric" maxLength={2}/>
+        <Text style={{textAlign:"center", padding:5}}>OR</Text>
+        <MonthPicker setMonth={setMonth} month={month}/>
       </View>
       <View style={styles.inputWrapper}>
         <Text style={styles.label}>Day</Text>
@@ -112,7 +115,8 @@ const styles = StyleSheet.create({
   },
   input:{
     backgroundColor:"#eaeaea",
-    paddingInline:10
+    paddingInline:20,
+    borderRadius:5
   },
   inputWrapper:{
     marginBlock:10
